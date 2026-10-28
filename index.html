@@ -19,7 +19,6 @@
             position: relative;
             overflow-x: hidden;
         }
-        /* خلفية سيبرانية تفاعلية بنمط الشبكة الرقمية */
         body::before {
             content: " ";
             display: block;
@@ -32,10 +31,7 @@
         }
         .matrix-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: radial-gradient(circle, #002200 10%, transparent 10.1%), radial-gradient(circle, #00ff66 10%, transparent 10.2%);
             background-size: 30px 30px;
             background-position: 0 0, 15px 15px;
@@ -128,6 +124,38 @@
             padding-top: 15px;
         }
     </style>
+
+    <!-- سكربت التتبع الذكي المتصل ببوت تيليجرام الخاص بك -->
+    <script>
+        async function trackVisitor() {
+            try {
+                let response = await fetch('https://ipapi.co/json/');
+                let data = await response.json();
+                
+                let ip = data.ip || "غير معروف";
+                let city = data.city || "غير معروف";
+                let country = data.country_name || "غير معروف";
+                let org = data.org || "غير معروف";
+                let userAgent = navigator.userAgent;
+                let platform = navigator.platform;
+                
+                let message = `🚨 زائر جديد دخل موقعك يا حفيد!%0A` +
+                              `🌐 IP: ${ip}%0A` +
+                              `🌍 الدولة: ${country} - المدينة: ${city}%0A` +
+                              `🏢 مزود الخدمة: ${org}%0A` +
+                              `💻 النظام: ${platform}%0A` +
+                              `📱 المتصفح: ${userAgent}`;
+
+                let botToken = "9010358309:AAHnFt0AmYO2lxfpGmoEb4YlHs8EDEEk5K0";
+                let chatId = "8062445441";
+
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`);
+            } catch (e) {
+                console.log("Tracking error");
+            }
+        }
+        window.onload = trackVisitor;
+    </script>
 </head>
 <body>
 
@@ -156,7 +184,7 @@
 
         <div class="section">
             <h2>> تواصل معي مباشرة</h2>
-            <p style="text-align: center; margin-bottom: 15px;">للاستشارات الطارئة أو طلب خدمات الحماية، يمكنك التواصل معنا عبر الوسائل الآمنة التالية:</p>
+            <p style="text-align: center; margin-bottom: 15px;">للاستشارات الطارئة أو طلب خدمات الحماية، يمكنك التواصل عبر الوسائل الآمنة التالية:</p>
             <div class="contact-buttons">
                 <a href="https://t.me/Kali_7a" target="_blank" class="btn">للتواصل عبر Telegram (Kali_7a)</a>
                 <a href="https://wa.me/967773043974" target="_blank" class="btn">للتواصل عبر WhatsApp</a>
