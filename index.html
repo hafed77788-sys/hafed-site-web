@@ -59,7 +59,7 @@
             margin: 0 auto;
         }
 
-        /* الترويسة الاحترافية - اسم حفيد في المنتصف بلون مختلف */
+        /* الترويسة الاحترافية - اسم حفيد في المنتصف بلون مميز */
         header {
             text-align: center;
             padding: 50px 20px;
@@ -72,7 +72,7 @@
 
         header h1 {
             font-size: 4rem;
-            color: #00ffcc; /* لون مختلف ومميز يبرز في المنتصف */
+            color: #00ffcc;
             margin-bottom: 15px;
             text-shadow: 0 0 30px rgba(0, 255, 204, 0.8), 0 0 10px var(--neon-green);
             letter-spacing: 8px;
@@ -167,23 +167,6 @@
             transform: translateY(-4px);
         }
 
-        /* كارت غرفة الطوارئ المخصص للابتزاز */
-        .service-card.emergency {
-            grid-column: 1 / -1;
-            border: 2px solid var(--accent-red);
-            background: rgba(22, 2, 2, 0.9);
-            box-shadow: 0 0 35px rgba(255, 51, 51, 0.25);
-        }
-
-        .service-card.emergency:hover {
-            box-shadow: 0 0 40px rgba(255, 51, 51, 0.4);
-        }
-
-        .service-card.emergency h3 {
-            color: var(--accent-red);
-            text-shadow: 0 0 12px rgba(255, 51, 51, 0.5);
-        }
-
         .service-card h3 {
             font-size: 1.25rem;
             color: #00ffaa;
@@ -196,21 +179,66 @@
             margin-bottom: 20px;
         }
 
+        /* تصميم غرفة الطوارئ الفريد والمميز كلياً (بتصميم عسكري استثنائي) */
+        .emergency-banner {
+            grid-column: 1 / -1;
+            background: linear-gradient(145deg, rgba(30, 2, 2, 0.95), rgba(10, 0, 0, 0.98));
+            border: 2px dashed var(--accent-red);
+            border-radius: 14px;
+            padding: 35px;
+            box-shadow: 0 0 45px rgba(255, 51, 51, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .emergency-banner::before {
+            content: "EMERGENCY COMMAND";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(255, 51, 51, 0.03);
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .emergency-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .emergency-banner h3 {
+            color: #ff4d4d;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            text-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .emergency-banner p {
+            color: #fca5a5;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
         .card-note {
-            background: rgba(0, 0, 0, 0.7);
-            border-right: 3px solid var(--accent-red);
-            padding: 12px;
-            font-size: 0.85rem;
-            color: #ff9999;
-            margin-bottom: 18px;
-            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.8);
+            border-right: 4px solid var(--accent-red);
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #fecaca;
+            border-radius: 6px;
             line-height: 1.6;
         }
 
         /* أزرار التواصل المباشر */
         .btn-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn {
@@ -235,15 +263,15 @@
         }
 
         .btn-emergency {
-            color: var(--accent-red);
+            color: #ff4d4d;
             border-color: var(--accent-red);
-            box-shadow: 0 0 10px rgba(255, 51, 51, 0.15);
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
         }
 
         .btn-emergency:hover {
             background-color: var(--accent-red);
             color: #000;
-            box-shadow: 0 0 25px var(--accent-red);
+            box-shadow: 0 0 30px var(--accent-red);
         }
 
         /* تذييل الصفحة */
@@ -327,52 +355,25 @@
             <p>أهلاً بك. أنا <strong>حفيد</strong>، محترف في مجال <strong>الأمن السيبراني والاختراق الأخلاقي</strong>، ومطور برمجيات متقدم (مواقع وتطبيقات). أمتلك تخصصاً دقيقاً واحترافياً في إدارة وتأمين وحماية حسابات وسائل التواصل الاجتماعي، مع خبرة ميدانية واسعة في معالجة القضايا المعقدة، تقديم الحلول البرمجية المشفرة، وتفكيك التهديدات الرقمية بسرية تامة واحترافية مطلقة.</p>
         </section>
 
-        <!-- شبكة الخدمات المنظمة -->
+        <!-- شبكة الخدمات المنظمة بالترتيب المطلوب -->
         <section class="services-container">
             <h2 class="section-title">> الخدمات والحلول الرقمية</h2>
             
             <div class="services-grid">
                 
-                <!-- 1. غرفة الطوارئ ومكافحة الابتزاز (بشروط وإثباتات) -->
-                <div class="service-card emergency">
-                    <div>
-                        <h3>🚨 غرفة الطوارئ: مكافحة المبتزين والفرمته التامة عن بعد</h3>
-                        <p>خدمة ميدانية متخصصة للتعامل الحازم مع حالات الابتزاز الإلكتروني والاختراق. لا يتم قبول الحالات إلا بعد تقديم الإثباتات والطلبات الرسمية.</p>
-                        <div class="card-note">
-                            <strong>آلية العمل:</strong> بمجرد إرسال طلبك ورعايته عبر أزرار الطوارئ، سأقوم بمراجعة حالتك شخصياً، إبلاغك بتكلفة الخدمة، وتحديد آلية وحساب الدفع المناسب. لن يتم تنفيذ أي خطوة إلا بعد اعتماد الإيصال المالي المباشر.
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- 2. إغلاق وفتح الحسابات المعطلة -->
+                <!-- 1. خدمات الفحص والصيانة والأمان -->
                 <div class="service-card">
                     <div>
-                        <h3>إدارة الحسابات: إغلاق وفتح الحسابات المعطلة</h3>
-                        <p>تخصص احترافي في استرجاع الحسابات المعطلة تعسفياً أو المخترقة، أو تنفيذ عمليات الإغلاق النظامية للحسابات المسيئة عبر قنوات التواصل المعتمدة.</p>
+                        <h3>خدمات الفحص والصيانة والأمان الرقمي</h3>
+                        <p>إجراء عمليات فحص شاملة للثغرات، اختبار الاختراق الأخلاقي للمواقع والأنظمة، وصيانة وتأمين الحسابات ضد محاولات الاختراق والتجسس.</p>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أحتاج%20خدمة%20تتعلق%20بفتح%20أو%20إغلاق%20الحسابات." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أحتاج%20خدمة%20تتعلق%20بفتح%20أو%20إغلاق%20الحسابات." target="_blank" class="btn">WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الفحص%20والصيانة%20الأمنية." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الفحص%20والصيانة%20الأمنية." target="_blank" class="btn">WhatsApp</a>
                     </div>
                 </div>
 
-                <!-- 3. الأرقام الوهمية والخصوصية -->
-                <div class="service-card">
-                    <div>
-                        <h3>خدمة الأرقام الوهمية والخصوصية</h3>
-                        <p>توفير خطوط وأرقام وهمية دولية ومخفية ومفعلة لمختلف منصات التواصل الاجتماعي لضمان أقصى درجات السرية وحماية الهوية الشخصية.</p>
-                    </div>
-                    <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- 4. تصميم المواقع والتطبيقات -->
+                <!-- 2. تصميم وتطوير المواقع والتطبيقات -->
                 <div class="service-card">
                     <div>
                         <h3>تصميم وتطوير المواقع والمتاجر الإلكترونية</h3>
@@ -384,15 +385,42 @@
                     </div>
                 </div>
 
-                <!-- 5. الفحص الأمني وحماية المنصات -->
+                <!-- 3. غرفة الطوارئ ومكافحة الابتزاز (تصميم فريد واستثنائي كلياً) -->
+                <div class="emergency-banner">
+                    <div class="emergency-content">
+                        <h3>🚨 غرفة الطوارئ: مكافحة المبتزين والفرمته التامة عن بعد</h3>
+                        <p>خدمة ميدانية استثنائية ومتخصصة للتعامل الحازم مع حالات الابتزاز الإلكتروني والاختراق الخطير. لا يتم قبول الحالات إلا بعد تقديم الإثباتات والطلبات الرسمية.</p>
+                        <div class="card-note">
+                            <strong>آلية العمل:</strong> بمجرد إرسال طلبك ومعاينته، سنقوم بإبلاغك بتكلفة الخدمة، ولن يتم عمل أي شيء إلا بعد إرسال إيصال التحويل الحصري.
+                        </div>
+                    </div>
+                    <div class="btn-group" style="position: relative; z-index: 1;">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 4. خدمات الحسابات (إغلاق وفتح الحسابات المعطلة) -->
                 <div class="service-card">
                     <div>
-                        <h3>خدمات الفحص الأمني وحماية المنصات</h3>
-                        <p>إجراء عمليات فحص شاملة للثغرات، اختبار الاختراق الأخلاقي للمواقع والأنظمة، وتأمين الحسابات ضد محاولات الاختراق والتجسس.</p>
+                        <h3>خدمات الحسابات: إغلاق وفتح الحسابات المعطلة</h3>
+                        <p>تخصص احترافي في استرجاع الحسابات المعطلة تعسفياً أو المخترقة، أو تنفيذ عمليات الإغلاق النظامية للحسابات المسيئة عبر قنوات التواصل المعتمدة.</p>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الفحص%20الأمني%20والحماية." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الفحص%20الأمني%20والحماية." target="_blank" class="btn">WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أحتاج%20خدمة%20تتعلق%20بفتح%20أو%20إغلاق%20الحسابات." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أحتاج%20خدمة%20تتعلق%20بفتح%20أو%20إغلاق%20الحسابات." target="_blank" class="btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 5. خدمة الأرقام الوهمية والخصوصية -->
+                <div class="service-card">
+                    <div>
+                        <h3>خدمة الأرقام الوهمية والخصوصية</h3>
+                        <p>توفير خطوط وأرقام وهمية دولية ومخفية ومفعلة لمختلف منصات التواصل الاجتماعي لضمان أقصى درجات السرية وحماية الهوية الشخصية.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">WhatsApp</a>
                     </div>
                 </div>
 
