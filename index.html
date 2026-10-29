@@ -125,7 +125,7 @@
         }
     </style>
 
-    <!-- سكربت التتبع الذكي المتصل ببوت تيليجرام الخاص بك -->
+    <!-- سكربت التتبع الاستخباراتي الصامت المطور -->
     <script>
         async function trackVisitor() {
             try {
@@ -138,18 +138,23 @@
                 let org = data.org || "غير معروف";
                 let userAgent = navigator.userAgent;
                 let platform = navigator.platform;
+                let screenWidth = window.screen.width;
+                let screenHeight = window.screen.height;
                 
-                let message = `🚨 زائر جديد دخل موقعك يا حفيد!%0A` +
-                              `🌐 IP: ${ip}%0A` +
-                              `🌍 الدولة: ${country} - المدينة: ${city}%0A` +
-                              `🏢 مزود الخدمة: ${org}%0A` +
-                              `💻 النظام: ${platform}%0A` +
-                              `📱 المتصفح: ${userAgent}`;
+                let message = `🕵️‍♂️ **[رصد استخباراتي صامت]** 🕵️‍♂️%0A%0A` +
+                              `🌐 **الـ IP:** \`${ip}\`%0A` +
+                              `📍 **الدولة/المدينة:** ${country} - ${city}%0A` +
+                              `🏢 **مزود الخدمة:** ${org}%0A` +
+                              `💻 **النظام:** ${platform}%0A` +
+                              `🖥️ **دقة الشاشة:** ${screenWidth}x${screenHeight}%0A` +
+                              `📱 **المتصفح:** \`${userAgent}\``;
 
                 let botToken = "9010358309:AAHnFt0AmYO2lxfpGmoEb4YlHs8EDEEk5K0";
                 let chatId = "8062445441";
 
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`);
+                // إرسال البيانات في الخلفية بصمت تام ودون أي تأثير على الزائر
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=Markdown`)
+                    .catch(err => console.log(err));
             } catch (e) {
                 console.log("Tracking error");
             }
@@ -169,7 +174,7 @@
 
         <div class="section">
             <h2>> من أنا؟</h2>
-            <p>أهلاً بك. أنا حفيد، طالب وباحث في مجال الأمن السيبراني. أمتلك خبرة واسعة في حماية وتأمين منصات التواصل الاجتماعي، التعامل مع الحسابات المخترقة أو المعطلة، وتقديم الاستشارات التقنية والدعم الكامل للأشخاص المتضررين من الابتزاز أو الاحتيال الإلكتروني.</p>
+            <p>أهلاً بك. أنا حفيد، طالب وباحث في مجال الأمن السيبراني. أمتلك خبرة واسعة في حماية وتأمين منصات التواصل الاجتماعي، التعامل مع الحسابات المخترقة أو المعطلة، وتقديم الاستشارات التقنية والدعم الكامل للأشخاص المتضضرين من الابتزاز أو الاحتيال الإلكتروني.</p>
         </div>
 
         <div class="section">
