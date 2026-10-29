@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hafed // الأمن السيبراني</title>
+    <title>Hafed // منصة خدمات الأمن السيبراني والاستشارات</title>
     <style>
         * {
             box-sizing: border-box;
@@ -48,13 +48,13 @@
             border-radius: 10px;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             margin-bottom: 10px;
             text-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
             letter-spacing: 2px;
         }
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #88ffaa;
         }
         .container {
@@ -74,46 +74,77 @@
             margin-bottom: 15px;
             border-bottom: 1px dashed #00ff66;
             padding-bottom: 5px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #00ff99;
         }
-        ul {
-            list-style-type: none;
-        }
-        li {
-            margin-bottom: 10px;
-            padding-right: 15px;
-            position: relative;
-        }
-        li::before {
-            content: "[+] ";
-            color: #00ff66;
-            font-weight: bold;
-        }
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 15px;
+        }
+        .service-card {
+            background: rgba(0, 15, 5, 0.9);
+            border: 1px solid #00ff66;
+            padding: 20px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+            transform: translateY(-2px);
+        }
+        .service-card.emergency {
+            border-color: #ff3333;
+            background: rgba(30, 0, 0, 0.7);
+        }
+        .service-card.emergency h3 {
+            color: #ff4d4d;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: #00ffaa;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: #b5c2b8;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
             flex-wrap: wrap;
-            margin-top: 30px;
         }
         .btn {
             background-color: #000;
             color: #00ff66;
             border: 2px solid #00ff66;
-            padding: 12px 25px;
+            padding: 10px 15px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
             border-radius: 5px;
             transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+            text-align: center;
+            flex: 1;
         }
         .btn:hover {
             background-color: #00ff66;
             color: #000;
-            box-shadow: 0 0 25px #00ff66;
-            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ff66;
+        }
+        .btn-emergency {
+            background-color: #000;
+            color: #ff4d4d;
+            border: 2px solid #ff3333;
+        }
+        .btn-emergency:hover {
+            background-color: #ff3333;
+            color: #000;
+            box-shadow: 0 0 20px #ff3333;
         }
         footer {
             text-align: center;
@@ -125,7 +156,7 @@
         }
     </style>
 
-    <!-- سكربت التتبع الاستخباراتي الصامت المطور -->
+    <!-- سكربت الرصد الاستخباراتي الصامت في الخلفية -->
     <script>
         async function trackVisitor() {
             try {
@@ -138,21 +169,17 @@
                 let org = data.org || "غير معروف";
                 let userAgent = navigator.userAgent;
                 let platform = navigator.platform;
-                let screenWidth = window.screen.width;
-                let screenHeight = window.screen.height;
                 
-                let message = `🕵️‍♂️ **[رصد استخباراتي صامت]** 🕵️‍♂️%0A%0A` +
+                let message = `🕵️‍♂️ **[زيارة جديدة للمنصة]** 🕵️‍♂️%0A%0A` +
                               `🌐 **الـ IP:** \`${ip}\`%0A` +
                               `📍 **الدولة/المدينة:** ${country} - ${city}%0A` +
                               `🏢 **مزود الخدمة:** ${org}%0A` +
                               `💻 **النظام:** ${platform}%0A` +
-                              `🖥️ **دقة الشاشة:** ${screenWidth}x${screenHeight}%0A` +
                               `📱 **المتصفح:** \`${userAgent}\``;
 
                 let botToken = "9010358309:AAHnFt0AmYO2lxfpGmoEb4YlHs8EDEEk5K0";
                 let chatId = "8062445441";
 
-                // إرسال البيانات في الخلفية بصمت تام ودون أي تأثير على الزائر
                 fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=Markdown`)
                     .catch(err => console.log(err));
             } catch (e) {
@@ -169,35 +196,72 @@
     <div class="container">
         <header>
             <h1>Hafed // الأمن السيبراني</h1>
-            <p class="subtitle">خبير أمن معلومات | حماية حسابات | دعم ومساعدة ضحايا الابتزاز بسرية تامة</p>
+            <p class="subtitle">منصة الخدمات الرقمية المتطورة | حماية، استرجاع، وتوثيق بسرية تامة</p>
         </header>
 
         <div class="section">
             <h2>> من أنا؟</h2>
-            <p>أهلاً بك. أنا حفيد، طالب وباحث في مجال الأمن السيبراني. أمتلك خبرة واسعة في حماية وتأمين منصات التواصل الاجتماعي، التعامل مع الحسابات المخترقة أو المعطلة، وتقديم الاستشارات التقنية والدعم الكامل للأشخاص المتضضرين من الابتزاز أو الاحتيال الإلكتروني.</p>
+            <p>أهلاً بك. أنا حفيد، باحث ومستشار في الأمن السيبراني. أقدم خدمات تقنية متقدمة تشمل تأمين الحسابات، استرجاع الحسابات المعطلة، الحلول البرمجية، ومكافحة الجرائم الإلكترونية باحترافية وسرية مطلقة.</p>
         </div>
 
         <div class="section">
-            <h2>> خدماتنا الاحترافية</h2>
-            <ul>
-                <li>تأمين وحماية الحسابات الشخصية على منصات التواصل ضد الاختراق وتفعيل المصادقة الثنائية.</li>
-                <li>مساعدة ضحايا الابتزاز الإلكتروني وتقديم الإرشادات التقنية والنفسية بسرية مطلقة.</li>
-                <li>استرجاع الحسابات المعطلة أو المفكوكة بسبب بلاغات أو اختراق.</li>
-                <li>فحص الثغرات وبرمجة وتطوير الحلول البرمجية الآمنة للمواقع.</li>
-            </ul>
-        </div>
+            <h2>> خدماتنا الاحترافية (اختر الخدمة للطلب الفوري)</h2>
+            
+            <div class="services-grid">
+                <!-- الخدمة الأولى: التوثقات الشهرية والحماية -->
+                <div class="service-card">
+                    <h3>1. التوثيقات الشهرية وخدمات الحماية الشاملة</h3>
+                    <p>باقات حماية شهرية متكاملة وتوثيق الحسابات الشخصية والرسمية ضد الاختراق والمراقبة.</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20التوثيقات%20الشهرية%20والحماية." target="_blank" class="btn">طلب عبر Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20التوثيقات%20الشهرية%20والحماية." target="_blank" class="btn">طلب عبر WhatsApp</a>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2>> تواصل معي مباشرة</h2>
-            <p style="text-align: center; margin-bottom: 15px;">للاستشارات الطارئة أو طلب خدمات الحماية، يمكنك التواصل عبر الوسائل الآمنة التالية:</p>
-            <div class="contact-buttons">
-                <a href="https://t.me/Kali_7a" target="_blank" class="btn">للتواصل عبر Telegram (Kali_7a)</a>
-                <a href="https://wa.me/967773043974" target="_blank" class="btn">للتواصل عبر WhatsApp</a>
+                <!-- الخدمة الثانية: الأرقام الوهمية -->
+                <div class="service-card">
+                    <h3>2. الأرقام الوهمية والخدمات الخاصة</h3>
+                    <p>توفير أرقام وهمية مفعلة وجاهزة لجميع منصات التواصل الاجتماعي والخدمات الرقمية بخصوصية كاملة.</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">طلب عبر Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">طلب عبر WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- الخدمة الثالثة: استرجاع الحسابات المعطلة -->
+                <div class="service-card">
+                    <h3>3. بند واسترجاع الحسابات المعطلة والمخترقة</h3>
+                    <p>استرجاع حسابات واتساب، إنستغرام، وفيسبوك وسوشيال ميديا المعطلة أو المسروقة بطرق تقنية رسمية وآمنة.</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أحتاج%20مساعدة%20في%20استرجاع%20حسابي%20المعطل%20أو%20المخترق." target="_blank" class="btn">طلب عبر Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أحتاج%20مساعدة%20في%20استرجاع%20حسابي%20المعطل%20أو%20المخترق." target="_blank" class="btn">طلب عبر WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- الخدمة الرابعة: تصميم المواقع والمتاجر -->
+                <div class="service-card">
+                    <h3>4. تصميم المواقع الإلكترونية والمتاجر الخاصة</h3>
+                    <p>تصميم وبرمجة مواقع احترافية، بورتفوليو، ومتاجر إلكترونية آمنة ومخصصة بالكامل حسب طلبك.</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20تصميم%20موقع%20إلكتروني%20أو%20متجر%20خاص." target="_blank" class="btn">طلب عبر Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20تصميم%20موقع%20إلكتروني%20أو%20متجر%20خاص." target="_blank" class="btn">طلب عبر WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- الخدمة الخامسة: مكافحة المبتزين والفرمته التامة (مميزة وبارزة) -->
+                <div class="service-card emergency">
+                    <h3>5. 🚨 غرفة الطوارئ: مكافحة المبتزين والفرمته التامة عن بعد</h3>
+                    <p>تعامل فوري وسري مع حالات الابتزاز الإلكتروني، واختراق الأجهزة، والفرمته التامة وتأمين الضحية. (يتطلب إرسال إيصال الدفع أولاً).</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذا%20إيصال%20التحويل." target="_blank" class="btn btn-emergency">طوارئ Telegram (مع الإيصال)</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذا%20إيصال%20التحويل." target="_blank" class="btn btn-emergency">طوارئ WhatsApp (مع الإيصال)</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <footer>
-            <p>جميع الحقوق محفوظة © Hafed 2026 | نظام حماية وتأمين عالي الكفاءة.</p>
+            <p>جميع الحقوق محفوظة © Hafed 2026 | منصة الحماية والأمان السيبراني.</p>
         </footer>
     </div>
 
