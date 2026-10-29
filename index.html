@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAFED // Cyber Intelligence & Security Operations</title>
+    <title>HAFED // Cyber Intelligence & Security Command</title>
     <style>
         * {
             box-sizing: border-box;
@@ -11,20 +11,21 @@
             padding: 0;
         }
         body {
-            background-color: #020502;
+            background-color: #010401;
             color: #00ff66;
             font-family: 'Courier New', Courier, monospace;
-            line-height: 1.6;
+            line-height: 1.7;
             padding: 20px;
             position: relative;
             overflow-x: hidden;
         }
+        /* تأثيرات الشاشات العسكرية وخطوط السيرفرات الآمنة (CRT Scanlines) */
         body::before {
             content: " ";
             display: block;
             position: fixed;
             top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.015), rgba(0, 0, 255, 0.03));
             z-index: -999;
             background-size: 100% 4px, 6px 100%;
             pointer-events: none;
@@ -32,57 +33,69 @@
         .matrix-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(circle, #001a00 10%, transparent 10.1%), radial-gradient(circle, #00ff66 10%, transparent 10.2%);
-            background-size: 35px 35px;
-            background-position: 0 0, 17px 17px;
-            opacity: 0.06;
+            background-image: radial-gradient(circle, #001f00 10%, transparent 10.1%), radial-gradient(circle, #00ff66 10%, transparent 10.2%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.05;
             z-index: -1000;
             pointer-events: none;
         }
         header {
             text-align: center;
-            padding: 45px 20px;
+            padding: 50px 20px;
             border-bottom: 2px solid #00ff66;
-            margin-bottom: 30px;
-            background: rgba(0, 15, 5, 0.85);
+            margin-bottom: 35px;
+            background: linear-gradient(135deg, rgba(0, 20, 5, 0.9), rgba(0, 5, 2, 0.95));
             border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.25), inset 0 0 15px rgba(0, 255, 102, 0.1);
         }
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(0, 255, 102, 0.8);
-            letter-spacing: 3px;
+            font-size: 3rem;
+            margin-bottom: 12px;
+            text-shadow: 0 0 25px rgba(0, 255, 102, 0.9);
+            letter-spacing: 4px;
         }
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #88ffaa;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(136, 255, 170, 0.4);
         }
         .container {
             max-width: 950px;
             margin: 0 auto;
         }
         .section {
-            background: rgba(8, 12, 8, 0.9);
-            border: 1px solid #00ff66;
+            background: rgba(5, 12, 5, 0.92);
+            border: 1px solid rgba(0, 255, 102, 0.4);
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.12);
-            backdrop-filter: blur(8px);
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.08);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .section:hover {
+            border-color: #00ff66;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
+        }
+        .section.priority-high {
+            border: 2px solid #ff3333;
+            background: rgba(25, 0, 0, 0.9);
+            box-shadow: 0 0 35px rgba(255, 51, 51, 0.35);
         }
         h2 {
             margin-bottom: 15px;
-            border-bottom: 1px dashed #00ff66;
+            border-bottom: 1px dashed rgba(0, 255, 102, 0.5);
             padding-bottom: 8px;
             font-size: 1.5rem;
             color: #00ff99;
+            letter-spacing: 1px;
         }
         .priority-high h2 {
             color: #ff4d4d;
-            border-color: #ff3333;
+            border-color: rgba(255, 51, 51, 0.5);
         }
         p {
             margin-bottom: 12px;
@@ -90,12 +103,13 @@
             color: #c9d1d9;
         }
         .bio-box {
-            border-left: 4px solid #00ff66;
-            padding-right: 15px;
-            background: rgba(0, 25, 10, 0.4);
+            border-right: 4px solid #00ff66;
+            padding-left: 15px;
+            background: rgba(0, 25, 10, 0.5);
             padding: 15px;
-            border-radius: 4px;
+            border-radius: 6px;
             margin-top: 15px;
+            border-left: none;
         }
         .services-grid {
             display: grid;
@@ -103,43 +117,45 @@
             gap: 20px;
         }
         .service-card {
-            background: rgba(0, 10, 3, 0.95);
-            border: 1px solid #00ff66;
-            padding: 22px;
+            background: rgba(0, 8, 2, 0.95);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            padding: 25px;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             transition: all 0.3s ease;
         }
         .service-card:hover {
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+            border-color: #00ff66;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.3);
             transform: translateY(-3px);
         }
         .service-card.emergency {
             border: 2px solid #ff3333;
-            background: rgba(35, 0, 0, 0.8);
+            background: rgba(30, 0, 0, 0.85);
         }
         .service-card.emergency h3 {
             color: #ff4d4d;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
         }
         .service-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: #00ffaa;
         }
         .payment-box {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.85);
             border: 1px dashed #ff3333;
             padding: 15px;
             border-radius: 6px;
-            margin: 10px 0;
             color: #ff9999;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
         .btn-group {
             display: flex;
             gap: 12px;
-            margin-top: 10px;
+            margin-top: 5px;
             flex-wrap: wrap;
         }
         .btn {
@@ -155,29 +171,34 @@
             cursor: pointer;
             text-align: center;
             flex: 1;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.15);
         }
         .btn:hover {
             background-color: #00ff66;
             color: #000;
-            box-shadow: 0 0 20px #00ff66;
+            box-shadow: 0 0 25px #00ff66;
+            transform: scale(1.02);
         }
         .btn-emergency {
             background-color: #000;
             color: #ff4d4d;
             border: 2px solid #ff3333;
+            box-shadow: 0 0 10px rgba(255, 51, 51, 0.2);
         }
         .btn-emergency:hover {
             background-color: #ff3333;
             color: #000;
-            box-shadow: 0 0 25px #ff3333;
+            box-shadow: 0 0 30px #ff3333;
+            transform: scale(1.02);
         }
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
             font-size: 0.9rem;
             color: #448855;
-            border-top: 1px solid #113311;
+            border-top: 1px solid rgba(17, 51, 17, 0.5);
             padding-top: 20px;
+            letter-spacing: 1px;
         }
     </style>
 
@@ -234,7 +255,7 @@
             <p class="subtitle">محقق ومستشار أمني سيبراني | فحص البصمات الرقمية | مكافحة الجرائم الإلكترونية</p>
         </header>
 
-        <!-- الملف التعريفي -->
+        <!-- الملف التعريفي الهادئ والمهيب -->
         <div class="section">
             <h2>> الملف التعريفـي (OPERATIONAL PROFILE)</h2>
             <p>أنا <strong>حفيد</strong>، باحث ومحقق أمني ومطور استخباراتي في الفضاء الرقمي. أمتلك صلاحيات وقدرات فائقة في تحليل التهديدات المتقدمة، تتبع الأثر الرقمي، الهندسة العكسية، واختراق الحصون لحماية الأفراد والكيانات.</p>
@@ -257,13 +278,6 @@
                     <div class="payment-box">
                         <strong>⚠️ آلية وشروط العمل والتحويل:</strong><br>
                         بمجرد أن يتم استلام طلبك ورعايته، سنقوم بإبلاغك بتكلفة الخدمة، ولن يتم عمل أي شيء إلا بعد إرسال إيصال التحويل للحساب المرفق حصراً.
-                    </div>
-
-                    <div style="background: rgba(0,0,0,0.6); padding: 10px; border-radius: 5px; font-size: 0.9rem; margin-bottom: 10px;">
-                        💳 <strong>حسابات التحويل المعتمدة:</strong><br>
-                        • محفظة العملات الرقمية (USDT - TRC20):<br>
-                        <code style="color: #00ff66;">TV1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code><br>
-                        • أو عبر الحوالات المالية السريعة المعتمدة (تواصل للطلب).
                     </div>
 
                     <div class="btn-group">
